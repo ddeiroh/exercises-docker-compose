@@ -1,0 +1,18 @@
+services:
+  backend:
+    image: mluukkai/example-backend
+    ports:
+      - "8080:8080"
+    command: /bin/sh -c './server'
+    environment:
+      - REQUEST_ORIGIN=http://localhost:5001
+
+  frontend:
+    image: mluukkai/example-frontend
+    ports:
+      - "5001:5001"
+    command: /bin/sh -c 'serve -s -l 5001 build'
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8080
+    depends_on: 
+      - backend

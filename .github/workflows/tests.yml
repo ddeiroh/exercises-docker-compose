@@ -15,7 +15,7 @@ jobs:
         script:
           - test_2_01_writing_to_log.sh
           - test_2_02_simple_server_with_browser.sh
-          #- test_2_03_project_compose.sh
+          - test_2_03_project_compose.sh
           #- test_2_04_project_redis.sh
           #- test_2_06_project_postgres.sh
           #- test_2_07_project_bind_mount.sh
