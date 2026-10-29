@@ -1,11 +1,17 @@
 services:
   backend:
-    image: mluukkai/example-backend
+    image: backend:latest
+    build:
+      context: ../example-app
+      dockerfile: ../example-app/Dockerfile.backend
     ports:
       - "8080:8080"
 
   frontend:
-    image: mluukkai/example-frontend
+    image: frontend:latest
+    build:
+      context: ../example-app
+      dockerfile: ../example-app/Dockerfile.frontend
     ports:
       - "5001:5001"
     depends_on: 
