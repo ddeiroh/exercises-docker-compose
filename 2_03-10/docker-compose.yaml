@@ -1,6 +1,5 @@
 services:
   backend:
-    image: backend:latest
     build:
       context: ../example-app
       dockerfile: ../example-app/Dockerfile.backend
@@ -8,12 +7,15 @@ services:
       - "8080:8080"
     environment: 
       REDIS_HOST: redis
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: postgres
+      POSTGRES_HOST: postgres
     restart: unless-stopped
     depends_on: 
       - redis
 
   frontend:
-    image: frontend:latest
     build:
       context: ../example-app
       dockerfile: ../example-app/Dockerfile.frontend
@@ -21,6 +23,15 @@ services:
       - "5001:5001"
     depends_on: 
       - backend
+
+  postgres:
+    image: postgres:18
+    hostname: postgres
+    container_name: pgsql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: postgres
 
   redis:
     image: redis:7.4.12-alpine
