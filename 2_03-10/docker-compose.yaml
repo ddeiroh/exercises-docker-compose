@@ -20,7 +20,7 @@ services:
     depends_on: 
       - backend
 
-  postgres:
+  db:
     image: postgres:18
     hostname: postgres
     container_name: pgsql
