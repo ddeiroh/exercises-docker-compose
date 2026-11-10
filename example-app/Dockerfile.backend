@@ -1,7 +1,7 @@
 FROM golang:1.27.3
 
 ENV PORT=8080
-ENV REQUEST_ORIGIN=http://localhost:5001
+ENV REQUEST_ORIGIN=http://localhost:8000
 
 #RUN apt-get update && apt-get install -y git
 WORKDIR /myapp

@@ -19,7 +19,7 @@ jobs:
           - test_2_04_project_redis.sh
           - test_2_06_project_postgres.sh
           - test_2_07_project_bind_mount.sh
-          #- test_2_08_project_nginx_basic.sh
+          - test_2_08_project_nginx_basic.sh
           #- test_2_09_project_nginx.sh
           #- test_2_10_project_closed_ports.sh
     steps:
